@@ -6,14 +6,14 @@
 #    By: carlossalazar <carlossalazar@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/10 13:56:08 by carlossalaz       #+#    #+#              #
-#    Updated: 2025/02/13 20:34:00 by carlossalaz      ###   ########.fr        #
+#    Updated: 2025/02/17 14:18:10 by carlossalaz      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 INCLUDE = include
 CC = cc
-FLAGS = -g3 -Wall -Wextra -Werror -pthread -fsanitize=thread
+FLAGS = -g3 -Wall -Wextra -Werror -fsanitize=thread
 RM = rm -f
 LIBFT = libft
 SRC_DIR = src/

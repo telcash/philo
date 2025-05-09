@@ -6,7 +6,7 @@
 /*   By: carlossalazar <carlossalazar@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:30:23 by carlossalaz       #+#    #+#             */
-/*   Updated: 2025/02/13 21:56:36 by carlossalaz      ###   ########.fr       */
+/*   Updated: 2025/05/09 16:08:02 by carlossalaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_philo *init_philos(t_table *table)
     {
         philo[i].id = i;
         philo[i].eat_count = 0;
-        philo[i].last_eat = table->env->start_time;
+        philo[i].last_eat = 0;
         philo[i].env = table->env;
         philo[i].left_fork_mutex = &table->forks[i];
         if (i == table->env->philo_count - 1)
@@ -88,7 +88,7 @@ t_env   *init_env(int argc, char **argv)
     env->time_to_die = ft_atoi(argv[2]);
     env->time_to_eat = ft_atoi(argv[3]);
     env->time_to_sleep = ft_atoi(argv[4]);
-    env->start_time = get_current_time();
+    env->start_time = 0;
     if (argc == 6)
         env->must_eat_count = ft_atoi(argv[5]);
     else

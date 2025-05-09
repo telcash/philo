@@ -6,7 +6,7 @@
 /*   By: carlossalazar <carlossalazar@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:16:49 by carlossalaz       #+#    #+#             */
-/*   Updated: 2025/02/13 21:49:03 by carlossalaz      ###   ########.fr       */
+/*   Updated: 2025/05/09 16:13:35 by carlossalaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void *monitor_routine(void *arg)
             }
             i++;
         }
+        ft_usleep(1);
     }
     return (NULL);
 }

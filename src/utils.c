@@ -6,7 +6,7 @@
 /*   By: carlossalazar <carlossalazar@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:40:35 by carlossalaz       #+#    #+#             */
-/*   Updated: 2025/02/13 22:09:58 by carlossalaz      ###   ########.fr       */
+/*   Updated: 2025/05/09 14:36:39 by carlossalaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int get_current_time(void)
 void print_message(t_philo *philo, char *message)
 {
     pthread_mutex_lock(philo->print_mutex);
-    //if (!is_philo_dead(philo->env))
+    if (!is_philo_dead(philo->env))
         printf("%d %d %s\n", get_current_time() - philo->env->start_time, philo->id + 1, message);
     pthread_mutex_unlock(philo->print_mutex);
 }

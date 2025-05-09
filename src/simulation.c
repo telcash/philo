@@ -6,7 +6,7 @@
 /*   By: carlossalazar <carlossalazar@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:43:10 by carlossalaz       #+#    #+#             */
-/*   Updated: 2025/02/13 22:12:19 by carlossalaz      ###   ########.fr       */
+/*   Updated: 2025/05/09 16:08:49 by carlossalaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static int create_philos_threads(t_table *table)
     {
         if (pthread_create(&table->philo[i].thread, NULL, &philo_routine, &table->philo[i]))
             return (1) ;
-        if (i % 2 == 0)
-            ft_usleep(1);
         i++;
     }
     i = 0;
@@ -47,10 +45,24 @@ static int create_philos_threads(t_table *table)
     return (0);
 }
 
+void sync_philo_last_eat(t_table *table)
+{
+    int i;
+    
+    i = 0;
+    while (i < table->env->philo_count)
+    {
+        table->philo[i].last_eat = table->env->start_time;
+        i++;
+    }
+}
+
 int start_simulation(t_table *table)
 {
     pthread_t monitor;
 
+    table->env->start_time = get_current_time();
+    sync_philo_last_eat(table);
     if (pthread_create(&monitor, NULL, &monitor_routine, table))
         return (destroy_mutexes(table), 1);
     if (create_philos_threads(table))
